@@ -1,0 +1,53 @@
+<br><br>
+<div class="container">
+	<h2 class="text-center">Click row </h2>
+	<div class="table-responsive user-list">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>DOB</th>
+					<th>Gender</th>
+					<th>Address</th>
+					<th>Addrees1</th>
+					<th>Address2</th>
+					<th>State</th>
+					<th>City</th>
+					<th>Pincode</th>
+					<th>Educational</th>
+
+				</tr>
+			</thead>
+			<tbody cdkDropList (cdkDropListDropped)="onDrop($event)">
+				<tr *ngFor="let user of users" cdkDrag cdkDragLockAxis="y">
+					<th class="col-xs">
+						<div class="drag-handle">
+							<ng-container [ngTemplateOutlet]="dragHandleTmpl">
+							</ng-container>
+							{{ user.sno }}
+						</div>
+					</th>
+					<td class="col-md">{{user.name}}</td>
+					<td class="col-md">{{user.dob}}</td>
+					<td class="col-md">{{user.gender}}</td>
+					<td class="col-md">{{user.address}}</td>
+					<td class="col-md">{{user.addrees1}}</td>					
+					<td class="col-md">{{user.address2}}</td>					
+					<td class="col-md">{{user.state}}</td>					
+					<td class="col-md">{{user.city}}</td>					
+					<td class="col-md">{{user.pincode}}</td>					
+					<td class="col-md">{{user.educational}}</td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<ng-template #dragHandleTmpl>
+		<svg class="bi bi-list handle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+			xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd"
+				d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z"
+				clip-rule="evenodd" />
+		</svg>
+	</ng-template>
+</div>
